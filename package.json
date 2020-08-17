@@ -1,0 +1,22 @@
+{
+  "name": "cse4050",
+  "version": "1.0.0",
+  "description": "I'll use this file to record the steps I used to create the discord bot I will use for CSE 4050 Fall 2020.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csusbdt/4050-2020-fall.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csusbdt/4050-2020-fall/issues"
+  },
+  "homepage": "https://github.com/csusbdt/4050-2020-fall#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}

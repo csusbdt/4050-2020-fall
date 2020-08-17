@@ -25,6 +25,7 @@ Run the following to install the discord module and all dependencies.
 This generates node_modules.
 
 ~~~
+npm init
 npm install discord.js --save
 ~~~
 
