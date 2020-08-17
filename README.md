@@ -75,5 +75,31 @@ To do this, Discord -> Preferences -> Appearance -> Developer mode on
 Right click channel and select Copy ID.
 Use this in your code to restrict bot replies to the bot channel.
 
+~~~
+git add .
+git commit -m "X"
+git push heroku master
+~~~
+
+In heroku, select Resources.
+Turn off `web npm start`
+Turn on `worker node main.js`
+
+In https://discord.com/developers/applications/ go to the bot app.
+Select OAuth2 tab.
+In the scopes section, check __bot__.
+Check Send Message permission to the bot.
+Copy the url.
+Use the bot url to add bot to the server.
+https://discord.com/api/oauth2/authorize?client_id=745040301600538676&permissions=2048&scope=bot
+
+Enter the url in browser to go there.
+
+Run server app to connect to discord.
+
+~~~
+heroku restart
+~~~
+
 
 
