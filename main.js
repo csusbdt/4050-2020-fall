@@ -8,9 +8,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const = help `
+const help = `
 Commands:
   help
+  hi
   deadlines
 `;
 
@@ -29,12 +30,12 @@ const deadlines = `
 
 client.on('message', message => {
   if (message.channel.id != botChannelId) return;
-  if (message.content == 'bot') {
-    message.reply('> ' + bot);
-  } else if (message.content == 'bot help') {
-    message.reply('> ' + bot);
-  } else if (message.content == 'bot deadlines') {
-    message.reply('> ' + bot_deadlines);
+  if (message.content == 'help') {
+    message.reply('> ' + help);
+  } else if (message.content == 'hi') {
+    message.reply('> hello');
+  } else if (message.content == 'deadlines') {
+    message.reply('> ' + deadlines);
   }
 });
 

@@ -101,5 +101,10 @@ Run server app to connect to discord.
 heroku restart
 ~~~
 
+To see heroku logs
+
+~~~
+heroku logs -n 100 --tail
+~~~
 
 
