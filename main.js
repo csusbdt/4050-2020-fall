@@ -1,23 +1,35 @@
 const Discord = require("discord.js");
 
-const client = new Discord.Client();
+const botChannelId   = '745048746055958560';
+const client         = new Discord.Client();
+const hiReply        = new Discord.MessageEmbed();
+const helpReply      = new Discord.MessageEmbed();
+const deadlinesReply = new Discord.MessageEmbed();
 
-const botChannelId = '745048746055958560';
+hiReply        .type = 'rich';
+helpReply      .type = 'rich';
+deadlinesReply .type = 'rich';
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+hiReply        .setColor(0x00ff00);
+helpReply      .setColor(0x00ff00);
+deadlinesReply .setColor(0x00ff00);
 
-const help = `
-Commands:
-  help
-  hi
-  deadlines
-`;
+helpReply      .setTitle('Bot Commands');
+deadlinesReply .setTitle('Deadlines'   );
 
-const deadlines = `
+hiReply.setDescription(`
+hello
+`);
+
+helpReply.setDescription(`
+* hi
+* help
+* deadlines
+`);
+
+deadlinesReply.setDescription(`
 | Email              |  Deadline  | Points |
-|:------------------:|------------|:------:|
+|--------------------|------------|:------:|
 | Progress Report 1  |    Aug 31  |    4   |
 | Progress Report 2  |    Sep 14  |    8   |
 | Progress Report 3  |    Sep 28  |    8   |
@@ -28,14 +40,21 @@ const deadlines = `
 | Progress Report 8  |    Dec  7  |    8   |
 `;
 
+// I believe a handler must be set for ready event.
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
 client.on('message', message => {
-  if (message.channel.id != botChannelId) return;
-  if (message.content == 'help') {
-    message.reply('> ' + help);
-  } else if (message.content == 'hi') {
-    message.reply('> hello');
+  if (message.channel.id != botChannelId) {
+    return;
+  }
+  if (message.content == 'hi') {
+    message.channel.send(hiReply);
+  } else if (message.content == 'help') {
+    message.channel.send(helpReply);
   } else if (message.content == 'deadlines') {
-    message.reply('> ' + deadlines);
+    message.channel.send(deadlinesReply);
   }
 });
 
