@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const botId          = '745040301600538676;       ;
+const botId          = '745040301600538676'       ;
 const botChannelId   = '745048746055958560'       ;
 const client         = new Discord.Client()       ;
 const hiReply        = new Discord.MessageEmbed() ;
