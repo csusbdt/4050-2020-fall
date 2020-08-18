@@ -48,8 +48,9 @@ client.on('ready', () => {
 client.on('message', message => {
 console.log(message.author.id);
 console.log(message.recipient.id);
-  if (message.author.id    == botId) return;
+  if (typeof(message.recipient == 'undefined') return;
   if (message.recipient.id != botId) return;
+  if (message.author.id        == botId      ) return;
 
 /*
   if (message.author.bot                     ) return; // to avoid infinite recursion
