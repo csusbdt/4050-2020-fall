@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const botId          = '745040301600538676'       ;
+//const botId          = '745040301600538676'       ;
 const botChannelId   = '745048746055958560'       ;
 const client         = new Discord.Client()       ;
 const hiReply        = new Discord.MessageEmbed() ;
@@ -47,11 +47,9 @@ client.on('ready', () => {
 
 client.on('message', async message => {
 console.log(message.author.id);
-console.log(message.author.id);
-  if (typeof message.recipient === 'undefined') return;
-console.log(message.recipient.id);
-  if (message.recipient.id != botId) return;
-  if (message.author.id        == botId      ) return;
+console.log(message.author.bot);
+console.log(message.channel instanceof Discord.DMChannel);
+  if (message.author.bot                     ) return; // to avoid infinite recursion
 
 /*
   if (message.author.bot                     ) return; // to avoid infinite recursion
