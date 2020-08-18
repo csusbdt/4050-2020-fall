@@ -47,7 +47,7 @@ client.on('ready', () => {
 
 client.on('message', async message => {
 console.log(message.author.id);
-console.log(message.message.author.id);
+console.log(message.author.id);
   if (typeof message.recipient === 'undefined') return;
 console.log(message.recipient.id);
   if (message.recipient.id != botId) return;
