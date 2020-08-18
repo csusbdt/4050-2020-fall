@@ -17,28 +17,22 @@ deadlinesReply .setColor(0x00ff00)                ;
 helpReply      .setTitle('Bot Commands')          ;
 deadlinesReply .setTitle('Deadlines'   )          ;
 
-hiReply.setDescription(`
-hello
-`);
+hiReply.setDescription('hello');
 
-helpReply.setDescription(`
-* hi
-* help
-* deadlines
-`);
+helpReply.setDescription([ 'hi', 'help', 'deadlines' ].join('\n'));
 
-deadlinesReply.setDescription(`
-| Email              |  Deadline  | Points |
-|--------------------|------------|:------:|
-| Progress Report 1  |    Aug 31  |    4   |
-| Progress Report 2  |    Sep 14  |    8   |
-| Progress Report 3  |    Sep 28  |    8   |
-| Progress Report 4  |    Oct 12  |    8   |
-| Progress Report 5  |    Oct 26  |    8   |
-| Progress Report 6  |    Nov  9  |    8   |
-| Progress Report 7  |    Nov 23  |    8   |
-| Progress Report 8  |    Dec  7  |    8   |
-`);
+deadlinesReply.setDescription([
+'`| Email              |  Deadline  | Points |`',
+'`|--------------------|------------|:------:|`',
+'`| Progress Report 1  |    Aug 31  |    4   |`',
+'`| Progress Report 2  |    Sep 14  |    8   |`',
+'`| Progress Report 3  |    Sep 28  |    8   |`',
+'`| Progress Report 4  |    Oct 12  |    8   |`',
+'`| Progress Report 5  |    Oct 26  |    8   |`',
+'`| Progress Report 6  |    Nov  9  |    8   |`',
+'`| Progress Report 7  |    Nov 23  |    8   |`',
+'`| Progress Report 8  |    Dec  7  |    8   |`'
+].join('\n'));
 
 // I believe a handler must be set for ready event.
 client.on('ready', () => {
@@ -55,6 +49,8 @@ client.on('message', message => {
     message.channel.send(helpReply);
   } else if (message.content == 'deadlines') {
     message.channel.send(deadlinesReply);
+  } else {
+
   }
 });
 
