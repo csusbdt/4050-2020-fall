@@ -46,8 +46,8 @@ client.on('ready', () => {
 
 client.on('message', message => {
   if (message.author.bot                     ) return; // to avoid infinite recursion
-  if (message.type != 'dm'                   ) return;
-  if (!message.recipient.bot                 ) return;
+//  if (message.type != 'dm'                   ) return;
+//  if (!message.recipient.bot                 ) return;
   if (message.content        == 'hi'        ) {
     message.author.send(hiReply);
   } else if (message.content == 'help'      ) {
