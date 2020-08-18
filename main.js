@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 
-//const botId          = '745040301600538676'       ;
 const botChannelId   = '745048746055958560'       ;
 const client         = new Discord.Client()       ;
 const hiReply        = new Discord.MessageEmbed() ;
@@ -46,24 +45,18 @@ client.on('ready', () => {
 });
 
 client.on('message', async message => {
-console.log(message.author.id);
-console.log(message.author.bot);
-console.log(message.channel instanceof Discord.DMChannel);
-  if (message.author.bot                     ) return; // to avoid infinite recursion
-
-/*
-  if (message.author.bot                     ) return; // to avoid infinite recursion
-  if (!message.recipient.bot                 ) return;
-*/
-
-  if (message.content        == 'hi'        ) {
-    message.author.send(hiReply);
-  } else if (message.content == 'help'      ) {
-    message.author.send(helpReply);
-  } else if (message.content == 'deadlines' ) {
-    message.author.send(deadlinesReply);
+  if (message.channel.id != botChannelId) {
+    return;
+  }
+  if (message.author.bot) return; // to avoid infinite recursion
+  if (message.content == 'hi') {
+    message.channel.send(hiReply);
+  } else if (message.content == 'help') {
+    message.channel.send(helpReply);
+  } else if (message.content == 'deadlines') {
+    message.channel.send(deadlinesReply);
   } else {
-    message.author.send(dontKnowReply);
+    message.channel.send(dontKnowReply);
   }
 });
 
