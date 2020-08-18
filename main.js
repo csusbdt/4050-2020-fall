@@ -5,14 +5,17 @@ const client         = new Discord.Client()       ;
 const hiReply        = new Discord.MessageEmbed() ;
 const helpReply      = new Discord.MessageEmbed() ;
 const deadlinesReply = new Discord.MessageEmbed() ;
+const dontKnowReply  = new Discord.MessageEmbed() ;
 
 hiReply        .type = 'rich'                     ;
 helpReply      .type = 'rich'                     ;
 deadlinesReply .type = 'rich'                     ;
+dontKnowReply  .type = 'rich'                     ;
 
 hiReply        .setColor(0x00ff00)                ;
 helpReply      .setColor(0x00ff00)                ;
 deadlinesReply .setColor(0x00ff00)                ;
+dontKnowReply  .setColor(0x00ff00)                ;
 
 helpReply      .setTitle('Bot Commands')          ;
 deadlinesReply .setTitle('Deadlines'   )          ;
@@ -34,23 +37,25 @@ deadlinesReply.setDescription([
 '`| Progress Report 8  |    Dec  7  |    8   |`'
 ].join('\n'));
 
+dontKnowReply.setDescription("I don't understand.\nTry typing help.");
+
 // I believe a handler must be set for ready event.
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', message => {
-  if (message.channel.id != botChannelId) {
-    return;
-  }
-  if (message.content == 'hi') {
-    message.channel.send(hiReply);
-  } else if (message.content == 'help') {
-    message.channel.send(helpReply);
-  } else if (message.content == 'deadlines') {
-    message.channel.send(deadlinesReply);
+  if (message.author.bot                     ) return; // to avoid infinite recursion
+  if (message.type != 'dm'                   ) return;
+  if (message.recipient.id != client.user.id ) return;
+  if (message.content        == 'hi'        ) {
+    message.reply(hiReply);
+  } else if (message.content == 'help'      ) {
+    message.reply(helpReply);
+  } else if (message.content == 'deadlines' ) {
+    message.reply(deadlinesReply);
   } else {
-
+    message.reply(dontKnowReply);
   }
 });
 

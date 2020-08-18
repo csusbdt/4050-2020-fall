@@ -112,4 +112,7 @@ To see heroku logs
 heroku logs -n 100 --tail
 ~~~
 
+The following tool was useful to testing embed code:
+https://leovoel.github.io/embed-visualizer/
+
 
