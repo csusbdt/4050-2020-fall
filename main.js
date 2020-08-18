@@ -1,21 +1,21 @@
 const Discord = require("discord.js");
 
-const botChannelId   = '745048746055958560';
-const client         = new Discord.Client();
-const hiReply        = new Discord.MessageEmbed();
-const helpReply      = new Discord.MessageEmbed();
-const deadlinesReply = new Discord.MessageEmbed();
+const botChannelId   = '745048746055958560'       ;
+const client         = new Discord.Client()       ;
+const hiReply        = new Discord.MessageEmbed() ;
+const helpReply      = new Discord.MessageEmbed() ;
+const deadlinesReply = new Discord.MessageEmbed() ;
 
-hiReply        .type = 'rich';
-helpReply      .type = 'rich';
-deadlinesReply .type = 'rich';
+hiReply        .type = 'rich'                     ;
+helpReply      .type = 'rich'                     ;
+deadlinesReply .type = 'rich'                     ;
 
-hiReply        .setColor(0x00ff00);
-helpReply      .setColor(0x00ff00);
-deadlinesReply .setColor(0x00ff00);
+hiReply        .setColor(0x00ff00)                ;
+helpReply      .setColor(0x00ff00)                ;
+deadlinesReply .setColor(0x00ff00)                ;
 
-helpReply      .setTitle('Bot Commands');
-deadlinesReply .setTitle('Deadlines'   );
+helpReply      .setTitle('Bot Commands')          ;
+deadlinesReply .setTitle('Deadlines'   )          ;
 
 hiReply.setDescription(`
 hello
@@ -38,7 +38,7 @@ deadlinesReply.setDescription(`
 | Progress Report 6  |    Nov  9  |    8   |
 | Progress Report 7  |    Nov 23  |    8   |
 | Progress Report 8  |    Dec  7  |    8   |
-`;
+`);
 
 // I believe a handler must be set for ready event.
 client.on('ready', () => {
