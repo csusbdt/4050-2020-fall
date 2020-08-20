@@ -5,7 +5,7 @@ const client         = new Discord.Client() ;
 
 const hiReply        = 'hi'                                   ;
 const helpReply      = 'I respond to hi, help and deadlines.' ;
-const dontKnowReply  = 'I don't understand. Try typing help.' ;
+const dontKnowReply  = "I don't understand. Try typing help." ;
 const deadlinesReply = new Discord.MessageEmbed();
 
 deadlinesReply.type = 'rich';
