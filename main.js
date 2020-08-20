@@ -1,12 +1,11 @@
 const Discord = require("discord.js");
 
-const botChannelId   = '745048746055958560'       ;
-const client         = new Discord.Client()       ;
+const botChannelId   = '745048746055958560' ;
+const client         = new Discord.Client() ;
 
 const hiReply        = 'hi'                                   ;
 const helpReply      = 'I respond to hi, help and deadlines.' ;
 const dontKnowReply  = 'I don't understand. Try typing help.' ;
-
 const deadlinesReply = new Discord.MessageEmbed();
 
 deadlinesReply.type = 'rich';
