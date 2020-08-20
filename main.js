@@ -2,22 +2,15 @@ const Discord = require("discord.js");
 
 const botChannelId   = '745048746055958560'       ;
 const client         = new Discord.Client()       ;
-const hiReply        = new Discord.MessageEmbed() ;
-const helpReply      = new Discord.MessageEmbed() ;
-const deadlinesReply = new Discord.MessageEmbed() ;
-const dontKnowReply  = new Discord.MessageEmbed() ;
 
-hiReply        .type = 'rich'                     ;
-helpReply      .type = 'rich'                     ;
-deadlinesReply .type = 'rich'                     ;
-dontKnowReply  .type = 'rich'                     ;
+const hiReply        = 'hi'                                   ;
+const helpReply      = 'I respond to hi, help and deadlines.' ;
+const dontKnowReply  = 'I don't understand. Try typing help.' ;
 
-deadlinesReply .setTitle('Deadlines'   )          ;
+const deadlinesReply = new Discord.MessageEmbed();
 
-hiReply.setDescription('hello');
-
-helpReply.setDescription('I respond to hi, help and deadlines');
-
+deadlinesReply.type = 'rich';
+deadlinesReply.setTitle('Deadlines');
 deadlinesReply.setDescription([
 '`| Email              |  Deadline  | Points |`',
 '`|--------------------|------------|:------:|`',
@@ -31,8 +24,6 @@ deadlinesReply.setDescription([
 '`| Progress Report 8  |    Dec  7  |    8   |`'
 ].join('\n'));
 
-dontKnowReply.setDescription("I don't understand. Try typing help.");
-
 // I believe a handler must be set for ready event.
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -43,14 +34,14 @@ client.on('message', async message => {
     return;
   }
   if (message.author.bot) return; // to avoid infinite recursion
-  if (message.content == 'hi') {
-    message.channel.send(hiReply);
-  } else if (message.content == 'help') {
-    message.channel.send(helpReply);
+  if (message.content == 'hi')               {
+    message.channel.reply(hiReply);
+  } else if (message.content == 'help')      {
+    message.channel.reply(helpReply);
   } else if (message.content == 'deadlines') {
     message.channel.send(deadlinesReply);
-  } else {
-    message.channel.send(dontKnowReply);
+  } else                                     {
+    message.channel.reply(dontKnowReply);
   }
 });
 
