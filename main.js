@@ -34,13 +34,13 @@ client.on('message', async message => {
   }
   if (message.author.bot) return; // to avoid infinite recursion
   if (message.content == 'hi')               {
-    message.reply(hiReply);
+    message.channel.send(hiReply);
   } else if (message.content == 'help')      {
-    message.reply(helpReply);
+    message.channel.send(helpReply);
   } else if (message.content == 'deadlines') {
     message.channel.send(deadlinesReply);
   } else                                     {
-    message.reply(dontKnowReply);
+    message.channel.send(dontKnowReply);
   }
 });
 
