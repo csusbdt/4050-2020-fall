@@ -12,17 +12,11 @@ helpReply      .type = 'rich'                     ;
 deadlinesReply .type = 'rich'                     ;
 dontKnowReply  .type = 'rich'                     ;
 
-hiReply        .setColor(0x00ff00)                ;
-helpReply      .setColor(0x00ff00)                ;
-deadlinesReply .setColor(0x00ff00)                ;
-dontKnowReply  .setColor(0x00ff00)                ;
-
-helpReply      .setTitle('Bot Commands')          ;
 deadlinesReply .setTitle('Deadlines'   )          ;
 
 hiReply.setDescription('hello');
 
-helpReply.setDescription([ 'hi', 'help', 'deadlines' ].join('\n'));
+helpReply.setDescription('I respond to hi, help and deadlines');
 
 deadlinesReply.setDescription([
 '`| Email              |  Deadline  | Points |`',
@@ -37,7 +31,7 @@ deadlinesReply.setDescription([
 '`| Progress Report 8  |    Dec  7  |    8   |`'
 ].join('\n'));
 
-dontKnowReply.setDescription("I don't understand.\nTry typing help.");
+dontKnowReply.setDescription("I don't understand. Try typing help.");
 
 // I believe a handler must be set for ready event.
 client.on('ready', () => {
