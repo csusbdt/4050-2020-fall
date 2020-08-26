@@ -3,9 +3,10 @@ const Discord = require("discord.js");
 const botChannelId   = '745048746055958560' ;
 const client         = new Discord.Client() ;
 
-const hiReply        = 'hi'                                   ;
-const helpReply      = 'I respond to hi, help and deadlines.' ;
-const dontKnowReply  = "I don't understand. Try typing help." ;
+const hiReply        = 'hi';
+const helpReply      = 'I respond to hi, help, about and deadlines.';
+const dontKnowReply  = "I don't understand. Try typing help.";
+const aboutReply     = 'I was written by David Turner to illustrate Web App Dev in Discord. To see how he did it, go to the course repo at https://github.com/csusbdt/4050-2020-fall';
 const deadlinesReply = new Discord.MessageEmbed();
 
 deadlinesReply.type = 'rich';
@@ -39,6 +40,8 @@ client.on('message', async message => {
     message.channel.send(helpReply);
   } else if (message.content == 'deadlines') {
     message.channel.send(deadlinesReply);
+  } else if (message.content == 'about') {
+    message.channel.send(aboutReply);
   } else                                     {
     message.channel.send(dontKnowReply);
   }
